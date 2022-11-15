@@ -1,0 +1,31 @@
+
+ - Board Game -
+Group 9
+
+
+
+
+Grading:
+Complexity Analysis
+	Every function was documented with R.U. - Worst & Avg cases
+	The analysis of the functions was accurate
+
+Algorithms
+	More than one algorithms
+	Each algorithm solves a particular problem within the game logic
+
+Data Structures
+	More than 1 data structure from those we studied
+	Each solving a particular problem
+
+Efficiency
+	The algorithms have to be the best performing from their kind
+	None are the worst kind
+
+Correctness
+	Game runs fine considering coner cases in game logic
+
+Presentation
+	All members fully understand the presentation
+	Work was perfectly split
+	Everyone knows what the others did
