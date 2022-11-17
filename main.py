@@ -3,6 +3,7 @@ from graphics import *
 from error import error
 from intro import intro
 from breaker import breaker
+from guess_pins import guess_pins
 
 ###--- ··· ---###
 
@@ -24,7 +25,8 @@ def main_intro(win):
   elif intro_output == 1:
     #code breaker
     print("game mode: code breaker")
-    breaker()
+    #breaker()
+    guess_pins()
   else:
     # catch error
     error("intro", "22", "output differs from 0 and 1")
