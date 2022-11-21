@@ -1,5 +1,5 @@
 
 from graphics import *
 
-def maker():
+def maker(attempts, code_l, colours, colours_n):
     pass

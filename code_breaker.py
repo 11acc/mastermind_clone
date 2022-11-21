@@ -1,30 +1,28 @@
 
+from graphics import *
 import random as rand
 
-def guess_pins():
-    attempts = 6
-    code_l = 4
 
-    colours = ["red", "blue", "green", "yellow", "orange", "purple"]
-    colours_n = [0,1,2,3,4,5]
+def code_breaker(innitVars):
+    code_l = innitVars[1]
+    colours = innitVars[2]
+    colours_n = innitVars[3]
 
     print("Colour Key: ")
     for i in range(len(colours)):
         print(colours[i] + " - " + str(i))
+    '''
+    Colour Key: 
+    red - 0
+    blue - 1
+    green - 2
+    yellow - 3
+    orange - 4
+    purple - 5
+    '''
 
     code = generate_code(colours_n, code_l)
-    print(code)
-
-    win_condition = None
-    for j in range(attempts):
-        guess = generate_guess()
-        win_condition = check_guess(code, guess)
-        if win_condition:
-            print("Congratulations you won in " + str(j+1) + " attempts!")
-            break
-    
-    if win_condition == False:
-        print("Sorry you ran out of attempts! Better luck next time.")
+    return code
 
 ### --- · --- ###
 
@@ -38,15 +36,38 @@ def generate_code(colour_list, code_l):
             k += 1
     return code
 
-def generate_guess():
+def generate_guess(win, innitVars, buttons):
+    code_l = innitVars[1]
     guess_arr = []
+    red = buttons[0]
+    blue = buttons[1]
+    green = buttons[2]
+    yellow = buttons[3]
+    orange = buttons[4]
+    purple = buttons[5]
 
-    print("Input guesses separated by spaces: ")
-    input_var = input().split()
-
-    for item in range(len(input_var)):
-        guess_arr.append(int(input_var[item]))
-
+    for i in range(code_l):
+        pt = win.getMouse()
+        if red.clicked(pt):
+            print("red pin selected")
+            guess_arr.append(0)
+        elif blue.clicked(pt):
+            print("blue pin selected")
+            guess_arr.append(1)
+        elif green.clicked(pt):
+            print("green pin selected")
+            guess_arr.append(2)
+        elif yellow.clicked(pt):
+            print("yellow pin selected")
+            guess_arr.append(3)
+        elif orange.clicked(pt):
+            print("orange pin selected")
+            guess_arr.append(4)
+        elif purple.clicked(pt):
+            print("purple pin selected")
+            guess_arr.append(5)
+    
+    print(guess_arr)
     return guess_arr
 
 def check_guess(code, guess):
@@ -78,7 +99,3 @@ def check_guess(code, guess):
     if perfect_guess == len(code):
         return True
     return False
-
-### --- · --- ###
-
-guess_pins()

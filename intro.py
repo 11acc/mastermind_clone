@@ -47,19 +47,12 @@ def intro(win):
   if no_name == True:
     name = "Jullianne"
 
-
   pt = win.getMouse()
   
   if maker_button.clicked(pt):
     gamemode = 0
   elif breaker_button.clicked(pt):
     gamemode = 1
-
-  # code breaker / maker
-  #gamemode = -1
-  
-  # add instructions
-    # TODO
 
   # return maker/breaker, and name
   return gamemode, name
