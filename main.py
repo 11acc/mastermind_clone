@@ -5,7 +5,7 @@ from innit_vars import innit_vars
 
 from intro import intro
 from instructions import instructions
-#from maker import maker
+from maker import maker
 from breaker import breaker
 
 ###--- ··· ---###
@@ -42,7 +42,7 @@ def main_intro(win, innitVars):
     if inst == 0:
       clear(win)
     
-    #maker(innitVars)
+    maker(win, innitVars)
   elif intro_output == 1:
     #code breaker
     print("game mode: code breaker")

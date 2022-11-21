@@ -36,8 +36,7 @@ def generate_code(colour_list, code_l):
             k += 1
     return code
 
-def generate_guess(win, innitVars, buttons):
-    code_l = innitVars[1]
+def generate_guess(win, code_l, buttons):
     guess_arr = []
     red = buttons[0]
     blue = buttons[1]

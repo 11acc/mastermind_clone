@@ -14,7 +14,7 @@ def breaker(win, innitVars):
   colours_n = innitVars[3]
 
   #Seeting the pins
-  win = GraphWin("choose color", 270, 100)
+  win = GraphWin("breaker", 270, 100)
 
   # 1.1 create buttons
   red_btn = Button(win, Point(30, 50), 10, 10, '')
