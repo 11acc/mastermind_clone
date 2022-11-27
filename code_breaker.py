@@ -45,7 +45,7 @@ def generate_guess(win, code_l, buttons):
     orange = buttons[4]
     purple = buttons[5]
 
-    for i in range(code_l):
+    while len(guess_arr) < code_l:
         pt = win.getMouse()
         if red.clicked(pt):
             print("red pin selected")
@@ -98,3 +98,34 @@ def check_guess(code, guess):
     if perfect_guess == len(code):
         return True
     return False
+
+
+def color_click_change(win, x_coor, y_coor, size, code):
+  pins = []
+  pin = Circle(Point(x_coor, y_coor), size)
+  pin2 = Circle(Point(x_coor + 37, y_coor), size)
+  pin3 = Circle(Point(x_coor + 74, y_coor), size)
+  pin4 = Circle(Point(x_coor + 112, y_coor), size)
+  pins.append(pin)
+  pins.append(pin2)
+  pins.append(pin3)
+  pins.append(pin4)
+  num = 0
+  for i in pins:
+    if code[num] == 0:
+      i.setFill("red")
+    elif code[num] == 1:
+      i.setFill("blue")
+    elif code[num] == 2:
+      i.setFill("green")
+    elif code[num] == 3:
+      i.setFill("yellow")
+    elif code[num] == 4:
+      i.setFill("orange")
+    elif code[num] == 5:
+      i.setFill("purple")
+    num += 1
+    i.draw(win)
+
+def clues_color(cluesList):
+  pass

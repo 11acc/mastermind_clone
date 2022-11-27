@@ -5,16 +5,18 @@ from button import *
 from code_breaker import code_breaker
 from code_breaker import generate_guess
 from code_breaker import check_guess
+from code_breaker import color_click_change
+from code_breaker import clues_color
 
 
 def breaker(win, innitVars):
+  background = Image(Point(200, 283), "pictures/Breaker.gif")
+  background.draw(win)
+
   attempts = innitVars[0]
   code_l = innitVars[1]
-  colours = innitVars[2]
-  colours_n = innitVars[3]
-
-  #Seeting the pins
-  win = GraphWin("breaker", 270, 100)
+  #colours = innitVars[2]
+  #colours_n = innitVars[3]
 
   # 1.1 create buttons
   red_btn = Button(win, Point(30, 50), 10, 10, '')
@@ -63,12 +65,26 @@ def breaker(win, innitVars):
   print(code)
 
   win_condition = None
+  #y-coordinate
+  y_num = 27.7
   for i in range(attempts):
     guess = generate_guess(win, code_l, buttons)
-    win_condition = check_guess(code, guess)
+
+    #To display the guessed code
+    color_click_change(win, 92, y_num, 14.5, guess)
+    
+    # Check for win condition
+    win_condition, cluesList = check_guess(code, guess)
+
+    # To display clues
+    clues_color(cluesList)
+
     if win_condition:
+      color_click_change(win, 92, y_num, 14.5, guess)
       print("Congratulations you won in " + str(i + 1) + " attempts!")
       break
+    y_num += 40
 
   if win_condition == False:
+    color_click_change(win, 92, y_num, 14.5, guess)
     print("Sorry you ran out of attempts! Better luck next time.")

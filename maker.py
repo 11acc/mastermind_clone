@@ -6,7 +6,6 @@ from code_maker import code_maker
 from code_breaker import generate_guess
 
 def maker(win, innitVars):
-    print("mmmmmmmmmmmmmm")
     code_l = innitVars[1]
     
     #Seeting the pins
